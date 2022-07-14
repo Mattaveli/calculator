@@ -67,7 +67,8 @@ button {
   font-size: 3vw;
 }
 
-.number {
+.number,
+.decimal {
   background-color: rgb(64, 64, 64);
   color: white;
   font-size: 3vw;
@@ -86,6 +87,7 @@ button {
 
 .number:hover,
 .options:hover,
+.decimal:hover,
 .zero:hover {
   background-color: lightslategrey;
   -moz-transition: background-color 0.2s ease-in-out;
