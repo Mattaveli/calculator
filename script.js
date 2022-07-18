@@ -37,18 +37,20 @@ buttons.forEach((button) => {
       updateInput();
     }
     if (button.className == "operator" && button.value != "equals") {
-      //currentOperator = button.value;
       if (!firstNum) {
+        currentOperator = button.value;
         firstNum = currentInput;
         currentInput = "";
       }
-      if (!secondNum) {
+      if (firstNum && secondNum == "") {
         secondNum = currentInput;
         console.log("added 2nd num: " + secondNum);
         currentInput = "";
+        currentOperator = button.value;
       }
       if (firstNum && secondNum) {
-        let newValue = operate(firstNum, secondNum);
+        operate(firstNum, secondNum);
+        currentOperator = button.value;
         /* currentInput = newValue;
         updateInput();
         secondNum = "";
@@ -76,8 +78,9 @@ buttons.forEach((button) => {
         currentInput = firstNum;
         updateInput();
         return;
+      } else {
+        operate(firstNum, secondNum);
       }
-      let newValue = operate(firstNum, secondNum);
       /* currentInput = newValue;
       updateInput();
       firstNum = newValue;
